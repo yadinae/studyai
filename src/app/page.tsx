@@ -65,21 +65,21 @@ export default function Home() {
             </Link>
           </div>
           
-          {/* Stats */}
-          <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-            <div>
-              <div className="text-3xl md:text-4xl font-bold">100+</div>
-              <div className="text-white/80">提示词模板</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold">20+</div>
-              <div className="text-white/80">精品教程</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold">6</div>
-              <div className="text-white/80">应用场景</div>
-            </div>
-          </div>
+    {/* Stats - 使用真实数据 */}
+    <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+      <div>
+        <div className="text-3xl md:text-4xl font-bold">{samplePrompts.length}</div>
+        <div className="text-white/80">提示词模板</div>
+      </div>
+      <div>
+        <div className="text-3xl md:text-4xl font-bold">{sampleTutorials.length}</div>
+        <div className="text-white/80">精品教程</div>
+      </div>
+      <div>
+        <div className="text-3xl md:text-4xl font-bold">{categories.length}</div>
+        <div className="text-white/80">应用场景</div>
+      </div>
+    </div>
         </div>
       </section>
 
