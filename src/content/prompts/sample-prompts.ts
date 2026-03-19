@@ -186,7 +186,7 @@ export const samplePrompts: Prompt[] = [
 - 修复：使用参数化查询
 \`\`\`python
 data = db.query("SELECT * FROM users WHERE id = ?", (user_id,))
-\`\\``
+\`\`\`
 
 ### 🟡 建议改进
 
