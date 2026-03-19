@@ -6,13 +6,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { samplePrompts, categories } from "@/content/prompts/sample-prompts";
+import { useFavorites } from "@/lib/favorites";
 import { useState } from "react";
+import { Heart, Share2, Copy, Check } from "lucide-react";
 
 export default function PromptDetailClient() {
   const params = useParams();
   const promptId = params.id as string;
   const prompt = samplePrompts.find((p) => p.id === promptId);
   const [copied, setCopied] = useState(false);
+  const { toggle, isFav } = useFavorites();
+  const isFavorite = isFav(promptId, "prompt");
 
   if (!prompt) {
     return (
@@ -185,15 +189,31 @@ export default function PromptDetailClient() {
                 <CardTitle className="text-lg">快速操作</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <Button onClick={handleCopy} className="w-full">
-                  {copied ? "✓ 已复制到剪贴板" : "📋 复制提示词"}
-                </Button>
-                <Button variant="outline" className="w-full">
-                  ❤️ 收藏
-                </Button>
-                <Button variant="outline" className="w-full">
-                  🔗 分享
-                </Button>
+            <Button onClick={handleCopy} className="w-full">
+              {copied ? (
+                <><Check className="h-4 w-4 mr-2" /> 已复制</>
+              ) : (
+                <><Copy className="h-4 w-4 mr-2" /> 复制提示词</>
+              )}
+            </Button>
+            <Button 
+              variant="outline" 
+              className="w-full"
+              onClick={() => prompt && toggle({
+                id: prompt.id,
+                type: "prompt",
+                title: prompt.title,
+              })}
+            >
+              <Heart className={`h-4 w-4 mr-2 ${isFavorite ? "fill-red-500 text-red-500" : ""}`} />
+              {isFavorite ? "已收藏" : "收藏"}
+            </Button>
+            <Button variant="outline" className="w-full" onClick={() => {
+              navigator.clipboard.writeText(window.location.href);
+              alert("链接已复制到剪贴板");
+            }}>
+              <Share2 className="h-4 w-4 mr-2" /> 分享
+            </Button>
               </CardContent>
             </Card>
 

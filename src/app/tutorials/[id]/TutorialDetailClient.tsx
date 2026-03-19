@@ -7,11 +7,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { sampleTutorials } from "@/content/tutorials/sample-tutorials";
+import { useFavorites } from "@/lib/favorites";
+import { Heart, Share2 } from "lucide-react";
 
 export default function TutorialDetailClient() {
   const params = useParams();
   const tutorialId = params.id as string;
   const tutorial = sampleTutorials.find((t) => t.id === tutorialId);
+  const { toggle, isFav } = useFavorites();
+  const isFavorite = isFav(tutorialId, "tutorial");
 
   if (!tutorial) {
     return (
@@ -253,24 +257,46 @@ export default function TutorialDetailClient() {
                 </div>
                 <h1 className="text-3xl font-bold mb-4">{tutorial.title}</h1>
                 <p className="text-lg text-muted-foreground">{tutorial.description}</p>
-                <div className="flex items-center gap-6 mt-4 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-1">
-                    <span>👤</span>
-                    <span>{tutorial.author}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <span>📖</span>
-                    <span>{tutorial.readTime} 分钟阅读</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <span>👁</span>
-                    <span>{tutorial.views} 次阅读</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <span>📅</span>
-                    <span>{tutorial.createdAt}</span>
-                  </div>
+              <div className="flex items-center gap-6 mt-4 text-sm text-muted-foreground">
+                <div className="flex items-center gap-1">
+                  <span>👤</span>
+                  <span>{tutorial.author}</span>
                 </div>
+                <div className="flex items-center gap-1">
+                  <span>📖</span>
+                  <span>{tutorial.readTime} 分钟阅读</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <span>👁</span>
+                  <span>{tutorial.views} 次阅读</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <span>📅</span>
+                  <span>{tutorial.createdAt}</span>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => toggle({
+                    id: tutorial.id,
+                    type: "tutorial",
+                    title: tutorial.title,
+                  })}
+                >
+                  <Heart className={`h-4 w-4 mr-1 ${isFavorite ? "fill-red-500 text-red-500" : ""}`} />
+                  {isFavorite ? "已收藏" : "收藏"}
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => {
+                    navigator.clipboard.writeText(window.location.href);
+                    alert("链接已复制到剪贴板");
+                  }}
+                >
+                  <Share2 className="h-4 w-4 mr-1" /> 分享
+                </Button>
+              </div>
               </header>
 
               {/* Article Content */}
