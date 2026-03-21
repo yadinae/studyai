@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { samplePrompts, categories } from "@/content/prompts/sample-prompts";
+import { allPrompts as samplePrompts, categories } from "@/content/prompts/sample-prompts";
 import { sampleTutorials } from "@/content/tutorials/sample-tutorials";
 
 export default function Home() {

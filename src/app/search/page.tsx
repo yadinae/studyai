@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Search, ArrowLeft, X } from "lucide-react";
-import { samplePrompts } from "@/content/prompts/sample-prompts";
+import { allPrompts as samplePrompts } from "@/content/prompts/sample-prompts";
 import { sampleTutorials } from "@/content/tutorials/sample-tutorials";
 
 interface SearchResult {

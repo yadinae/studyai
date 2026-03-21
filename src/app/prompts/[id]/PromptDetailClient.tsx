@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { samplePrompts, categories } from "@/content/prompts/sample-prompts";
+import { allPrompts as samplePrompts, categories } from "@/content/prompts/sample-prompts";
 import { useFavorites } from "@/lib/favorites";
 import { useState } from "react";
 import { Heart, Share2, Copy, Check } from "lucide-react";

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { samplePrompts, categories } from "@/content/prompts/sample-prompts";
+import { allPrompts as samplePrompts, categories } from "@/content/prompts/sample-prompts";
 import PromptDetailClient from "./PromptDetailClient";
 
 interface Props {
