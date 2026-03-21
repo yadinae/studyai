@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { sampleTutorials } from "@/content/tutorials/sample-tutorials";
+import { allTutorials } from "@/content/tutorials/sample-tutorials";
 import TutorialDetailClient from "./TutorialDetailClient";
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const tutorial = sampleTutorials.find((t) => t.id === id);
+  const tutorial = allTutorials.find((t) => t.id === id);
 
   if (!tutorial) {
     return {
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function TutorialDetailPage({ params }: Props) {
   const { id } = await params;
-  const tutorial = sampleTutorials.find((t) => t.id === id);
+  const tutorial = allTutorials.find((t) => t.id === id);
 
   if (!tutorial) {
     return null;

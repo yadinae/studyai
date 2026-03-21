@@ -1479,6 +1479,13 @@ AI的能力在不断变化，保持开放心态。
 // 教程分类
 export const tutorialCategories = [
   { id: "beginner", name: "入门教程", description: "适合零基础学习者", count: 10 },
-  { id: "advanced", name: "进阶教程", description: "深入技巧和方法论", count: 0 },
-  { id: "scenarios", name: "场景教程", description: "实际应用案例", count: 0 }
+  { id: "advanced", name: "进阶教程", description: "深入技巧和方法论", count: 5 },
+  { id: "scenarios", name: "场景教程", description: "实际应用案例", count: 6 }
 ];
+
+// 导入进阶教程和场景教程
+import { advancedTutorials } from "./advanced-tutorials";
+import { scenarioTutorials } from "./scenario-tutorials";
+
+// 合并所有教程
+export const allTutorials = [...sampleTutorials, ...advancedTutorials, ...scenarioTutorials];

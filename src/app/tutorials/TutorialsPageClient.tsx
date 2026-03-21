@@ -4,23 +4,23 @@ import { useState } from "react";
 import { BookOpen, Clock, ChevronRight, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { sampleTutorials } from "@/content/tutorials/sample-tutorials";
+import { allTutorials, tutorialCategories } from "@/content/tutorials/sample-tutorials";
 import Link from "next/link";
 
 const categories = [
   { id: "all", name: "全部教程" },
-  { id: "basics", name: "入门基础" },
-  { id: "advanced", name: "进阶技巧" },
-  { id: "scenarios", name: "实战应用" },
+  { id: "入门", name: "入门教程" },
+  { id: "进阶", name: "进阶教程" },
+  { id: "场景", name: "场景教程" },
 ];
 
 export default function TutorialsPageClient() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredTutorials = sampleTutorials.filter((tutorial) => {
+  const filteredTutorials = allTutorials.filter((tutorial) => {
     const matchesCategory =
-      activeCategory === "all" || tutorial.category === activeCategory;
+      activeCategory === "all" || tutorial.level === activeCategory;
     const matchesSearch =
       searchQuery === "" ||
       tutorial.title.toLowerCase().includes(searchQuery.toLowerCase()) ||

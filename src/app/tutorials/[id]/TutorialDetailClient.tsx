@@ -6,14 +6,14 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { sampleTutorials } from "@/content/tutorials/sample-tutorials";
+import { allTutorials } from "@/content/tutorials/sample-tutorials";
 import { useFavorites } from "@/lib/favorites";
 import { Heart, Share2 } from "lucide-react";
 
 export default function TutorialDetailClient() {
   const params = useParams();
   const tutorialId = params.id as string;
-  const tutorial = sampleTutorials.find((t) => t.id === tutorialId);
+  const tutorial = allTutorials.find((t) => t.id === tutorialId);
   const { toggle, isFav } = useFavorites();
   const isFavorite = isFav(tutorialId, "tutorial");
 
@@ -40,12 +40,12 @@ export default function TutorialDetailClient() {
   }
 
   // 获取当前教程在列表中的索引
-  const currentIndex = sampleTutorials.findIndex((t) => t.id === tutorialId);
-  const prevTutorial = currentIndex > 0 ? sampleTutorials[currentIndex - 1] : null;
-  const nextTutorial = currentIndex < sampleTutorials.length - 1 ? sampleTutorials[currentIndex + 1] : null;
+  const currentIndex = allTutorials.findIndex((t) => t.id === tutorialId);
+  const prevTutorial = currentIndex > 0 ? allTutorials[currentIndex - 1] : null;
+  const nextTutorial = currentIndex < allTutorials.length - 1 ? allTutorials[currentIndex + 1] : null;
 
   // 相关教程（同级别）
-  const relatedTutorials = sampleTutorials
+  const relatedTutorials = allTutorials
     .filter((t) => t.level === tutorial.level && t.id !== tutorial.id)
     .slice(0, 3);
 
@@ -359,12 +359,12 @@ export default function TutorialDetailClient() {
               </CardHeader>
               <CardContent>
                 <div className="text-sm text-muted-foreground mb-4">
-                  第 {currentIndex + 1} / {sampleTutorials.length} 篇
+                  第 {currentIndex + 1} / {allTutorials.length} 篇
                 </div>
                 <div className="w-full bg-muted rounded-full h-2 mb-4">
                   <div
                     className="bg-primary rounded-full h-2 transition-all"
-                    style={{ width: `${((currentIndex + 1) / sampleTutorials.length) * 100}%` }}
+                    style={{ width: `${((currentIndex + 1) / allTutorials.length) * 100}%` }}
                   />
                 </div>
                 <Link href="/tutorials">

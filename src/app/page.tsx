@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { allPrompts as samplePrompts, categories } from "@/content/prompts/sample-prompts";
-import { sampleTutorials } from "@/content/tutorials/sample-tutorials";
+import { allTutorials as sampleTutorials } from "@/content/tutorials/sample-tutorials";
 
 export default function Home() {
   // 获取热门提示词（按点赞数排序，取前6个）
