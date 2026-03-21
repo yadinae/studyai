@@ -963,7 +963,6 @@ import batchLife02 from './batch-life-02';
 // 合并所有提示词
 export const allPrompts: Prompt[] = [
   ...samplePrompts,
-  ...batch001,
   ...batchWriting,
   ...batchWriting02,
   ...batchWriting03,
