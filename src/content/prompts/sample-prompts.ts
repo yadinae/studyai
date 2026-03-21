@@ -931,4 +931,66 @@ export const samplePrompts: Prompt[] = [
   }
 ];
 
-export default samplePrompts;
+// 导入所有 batch 文件
+import batchWriting from './batch-writing';
+import batchWriting02 from './batch-writing-02';
+import batchWriting03 from './batch-writing-03';
+import batchWriting04 from './batch-writing-04';
+import batchWriting05 from './batch-writing-05';
+import batchWriting06 from './batch-writing-06';
+import batchWriting07 from './batch-writing-07';
+import batchClaude from './batch-claude';
+import batchGemini from './batch-gemini';
+import batchImageGen from './batch-image-gen';
+import batchCoding from './batch-coding';
+import batchCoding02 from './batch-coding-02';
+import batchCoding03 from './batch-coding-03';
+import batchCoding04 from './batch-coding-04';
+import batchCoding05 from './batch-coding-05';
+import batchCoding06 from './batch-coding-06';
+import batchCoding07 from './batch-coding-07';
+import batchDesign from './batch-design';
+import batchDesign02 from './batch-design-02';
+import batchEducation from './batch-education';
+import batchEducation02 from './batch-education-02';
+import batchProductivity from './batch-productivity';
+import batchProductivity02 from './batch-productivity-02';
+import batchProductivity03 from './batch-productivity-03';
+import batchProductivity04 from './batch-productivity-04';
+import batchLife from './batch-life';
+import batchLife02 from './batch-life-02';
+
+// 合并所有提示词
+export const allPrompts: Prompt[] = [
+  ...samplePrompts,
+  ...batch001,
+  ...batchWriting,
+  ...batchWriting02,
+  ...batchWriting03,
+  ...batchWriting04,
+  ...batchWriting05,
+  ...batchWriting06,
+  ...batchWriting07,
+  ...batchClaude,
+  ...batchGemini,
+  ...batchImageGen,
+  ...batchCoding,
+  ...batchCoding02,
+  ...batchCoding03,
+  ...batchCoding04,
+  ...batchCoding05,
+  ...batchCoding06,
+  ...batchCoding07,
+  ...batchDesign,
+  ...batchDesign02,
+  ...batchEducation,
+  ...batchEducation02,
+  ...batchProductivity,
+  ...batchProductivity02,
+  ...batchProductivity03,
+  ...batchProductivity04,
+  ...batchLife,
+  ...batchLife02,
+];
+
+export default allPrompts;

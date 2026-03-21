@@ -242,3 +242,5 @@ export const codingPrompts: Prompt[] = [
     ]
   },
 ];
+
+export default codingPrompts;
